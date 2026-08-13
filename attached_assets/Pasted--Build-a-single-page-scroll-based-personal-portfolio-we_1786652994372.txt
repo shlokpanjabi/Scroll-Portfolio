@@ -1,0 +1,45 @@
+```
+Build a single-page, scroll-based personal portfolio website (HTML/CSS/JS, or React if the tool defaults to it — no page reloads, one continuous scroll). Must look great and work smoothly on both iPhone-sized screens and desktop — this matters as much as the desktop design.
+
+VIBE
+Techy, confident, minimal. Dark theme. The kind of portfolio a CS student who actually ships things would have — not decorative, not generic "AI startup" template. A little personality is good, but understated — one small technical flourish (like a live clock, a coordinate readout, or a numbered section system) rather than a full theme or metaphor. You have creative freedom on the headline, taglines, and microcopy — write these yourself in a tone that matches the vibe above, don't just restate my job titles as the headline.
+
+IMPORTANT CONTEXT
+I'm a first-year CS student still exploring what kind of role I want — leaning toward software engineering or AI, not narrowly "test engineering," even though my current internship is in system test. Don't make the headline or hero copy sound like I'm specialized in testing — it's one strong experience, not my whole identity.
+
+IDENTITY / FACTS TO USE
+Name: Shlok Navin Panjabi
+Role: MEng Computer Science (Artificial Intelligence) student, University of Southampton, Year 1
+Location: Southampton, UK
+Email: shlokpanjabi.work@gmail.com
+LinkedIn: linkedin.com/in/shlok-panjabi
+
+SECTIONS AND CONTENT
+
+Header/nav: name or wordmark, links to Experience / Projects / Skills / Contact.
+
+Hero: headline + short description you write, introducing me as a CS (AI) student at Southampton who builds and ships real things, with buttons for viewing work / downloading CV / contact.
+
+Stats row (write labels yourself, use these facts): achieved a 2:1 in Year 1, 9-week AccelerComm internship, fluent/proficient in 3 programming languages (Java, Python, C), IELTS 7.5.
+
+01 Experience (reverse chronological):
+- Jun 2026–Present: System Test Summer Intern, AccelerComm (Southampton Science Park) — writing Python test automation from scratch for 5G/LTE systems, controlling Keysight EXG/MXA RF equipment via PyVISA and SCPI
+- Aug 2024–Mar 2025: Head of Technology, LetUsBloom (Remote) — managed organisation website architecture, ensuring usability and structural integrity across digital initiatives
+- Aug 2024–Present: Web Developer & Designer, Freelance — delivered two custom web development projects end-to-end, design through deployment
+
+02 Projects (2-3 column card grid, status badges like "Shipped"):
+- Java Training School Sim — school management simulation using Object-Oriented Design, with file serialization to persist student/staff data. Tags: Java, OOD, Serialization
+- JavaFX Noughts & Crosses — GUI game built with the MVC pattern, JavaFX UI binding syncing game state with the interface. Tags: JavaFX, MVC
+- One more card, visually distinct (e.g. dashed border, no badge), indicating more projects are in progress and coming soon
+
+03 Skills (grouped, not a flat list):
+- Languages: Java, Python, C, SQL
+- AI & ML: TensorFlow, Keras, PCA
+- Web & Design: Figma, Wix, HTML/CSS
+- Systems: Unix/Linux, Git, PyVISA
+
+Footer/Contact: closing line you write, plus links to email, LinkedIn, GitHub (placeholder), and CV (placeholder).
+
+RESPONSIVE
+Every section must reflow cleanly on mobile (iPhone widths especially) — stat row and skills grid should collapse to fewer columns, project cards stack to one column, nav should adapt (hamburger or simplified) rather than overflow.
+```
