@@ -1,0 +1,54 @@
+Build a single-page, scroll-based personal portfolio website (HTML/CSS/JS, or React if the tool defaults to it — no page reloads, one continuous scroll). Must look great and work smoothly on both iPhone-sized screens and desktop.
+
+VIBE
+Techy, confident, minimal. Dark theme using warm off-white text on near-black, with a single signal-blue accent color used sparingly (not lime/green, not purple). One restrained technical flourish: a sticky vertical progress rail on the left edge (desktop only, hidden on mobile) with a small dot per section that fills in or highlights as the user scrolls past it. No numbered "// 01" comment-style section headers, no live clock/coordinates readout — keep the personality elsewhere, in the writing and layout. You have creative freedom on headline, taglines, and microcopy — write these yourself.
+
+IMPORTANT CONTEXT
+Still a first-year student exploring software engineering / AI broadly — not narrowly "test engineering," even though the current internship is in system test. Hero copy shouldn't sound like testing is my specialization.
+
+IDENTITY
+Name: Shlok Navin Panjabi
+Role: MEng Computer Science (Artificial Intelligence) student, University of Southampton, Year 1
+Location: Southampton, UK
+Email: shlokpanjabi.work@gmail.com
+LinkedIn: linkedin.com/in/shlok-panjabi
+
+SECTIONS
+
+Header/nav: name or wordmark, links to Experience / Projects / Skills / Education / Contact.
+
+Hero: headline + short description (your own words) introducing me as a CS (AI) student who builds and ships real things. Buttons: view work, download CV, get in touch.
+
+Stats row: achieved a 2:1 in Year 1, 9-week AccelerComm internship, 3 programming languages (Java, Python, C), IELTS 7.5.
+
+Experience (reverse chronological):
+- Jun 2026–Present: System Test Summer Intern, AccelerComm (Southampton Science Park) — writing Python test automation from scratch for 5G/LTE systems, controlling Keysight EXG/MXA RF equipment via PyVISA and SCPI
+- Aug 2024–Mar 2025: Head of Technology, LetUsBloom (Remote) — managed organisation website architecture, ensuring usability and structural integrity across digital initiatives
+- Aug 2024–Present: Web Developer & Designer, Freelance — delivered two custom web development projects end-to-end, design through deployment
+
+Projects (card grid, "Shipped" badges):
+- Java Training School Sim — school management simulation using Object-Oriented Design, with file serialization to persist student/staff data. Tags: Java, OOD, Serialization
+- JavaFX Noughts & Crosses — GUI game built with the MVC pattern, JavaFX UI binding syncing game state with the interface. Tags: JavaFX, MVC
+- One more card, visually distinct (e.g. dashed border, no badge): more projects in progress, coming soon
+
+Skills (grouped):
+- Languages: Java, Python, C, SQL
+- AI & ML: TensorFlow, Keras, PCA (dimensionality reduction)
+- Web & Design: Figma, Wix, HTML/CSS
+- Systems: Unix/Linux command line, Git, PyVISA
+- Communication: English (IELTS 7.5), Hindi, French
+
+Education:
+- University of Southampton, Sep 2025–Present: MEng Computer Science (with Artificial Intelligence). Core modules: Algorithmics, Data Management (SQL/Relational), Computer Systems, Networks & Security, Programming I & II, Applied Mathematics I & II.
+- ONCAMPUS Southampton, Sep 2024–May 2025: University Foundation Programme — Mathematics (A*), Physics (A*), Skills for Science (A*)
+
+Volunteering:
+- SOTSEF Science & Engineering Family Day, March 2026 — Technical Volunteer, Southampton. Facilitated technical demonstrations and supervised electronic construction workshops for 5,000 visitors.
+
+Footer/Contact: closing line (your own words), links to email, LinkedIn, GitHub (placeholder), and CV download.
+
+CV DOWNLOAD
+Add a functioning "Download CV" button/link in the hero and footer. I'll upload my actual CV PDF as the linked file — just wire up the button to point to it (e.g. an /assets or /public file named ShlokNavinPanjabi_CV.pdf).
+
+RESPONSIVE
+Every section reflows cleanly on mobile. Progress rail hides on mobile (replace with the scroll-progress bar at the top instead). Stat row and skills grid collapse to fewer columns, project cards stack to one column, nav adapts to a simplified menu.
