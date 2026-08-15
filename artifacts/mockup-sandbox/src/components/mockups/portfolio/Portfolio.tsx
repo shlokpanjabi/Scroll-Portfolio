@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ArrowDownToLine,
   ArrowUpRight,
   ChevronRight,
   Download,
+  Github,
   Linkedin,
   Mail,
   Menu,
@@ -75,41 +76,14 @@ function Tag({ children }: { children: string }) {
 function SectionLabel({ children }: { children: string }) {
   return (
     <div className="portfolio-section-label">
-      <span className="portfolio-label-line" />
       <span>{children}</span>
+      <span className="portfolio-label-context">Shlok Panjabi</span>
     </div>
   );
 }
 
 function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState("experience");
-
-  useEffect(() => {
-    const updateScrollState = () => {
-      const documentHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(documentHeight > 0 ? window.scrollY / documentHeight : 0);
-
-      let current = "experience";
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element && window.scrollY + window.innerHeight * 0.35 >= element.offsetTop) {
-          current = section.id;
-        }
-      }
-      setActiveSection(current);
-    };
-
-    updateScrollState();
-    window.addEventListener("scroll", updateScrollState, { passive: true });
-    window.addEventListener("resize", updateScrollState);
-    return () => {
-      window.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -122,28 +96,21 @@ function Portfolio() {
         .portfolio-shell a { color:inherit; text-decoration:none; }
         .portfolio-shell .mono { font-family:'DM Mono',monospace; }
         .portfolio-nav { align-items:center; display:flex; height:84px; justify-content:space-between; margin:auto; max-width:1240px; padding:0 32px; position:relative; z-index:10; }
-        .portfolio-mark { align-items:center; display:flex; font-family:'DM Mono',monospace; font-size:12px; gap:11px; letter-spacing:.08em; }
-        .portfolio-mark i { background:var(--blue); border-radius:50%; display:block; height:7px; width:7px; }
+        .portfolio-mark { color:var(--ink); display:flex; font-size:13px; font-weight:600; letter-spacing:-.025em; }
         .portfolio-navlinks { display:flex; gap:27px; }
         .portfolio-navlinks a { color:var(--muted); font-size:12px; transition:color .25s ease; }
         .portfolio-navlinks a:hover { color:var(--blue); }
         .portfolio-menu { background:none; border:1px solid var(--line); color:var(--ink); display:none; padding:9px; }
-        .portfolio-progress-mobile { background:var(--line); display:none; height:2px; left:20px; overflow:hidden; position:fixed; right:20px; top:70px; z-index:20; }
-        .portfolio-progress-mobile span { background:var(--blue); display:block; height:100%; transform-origin:left; }
-        .portfolio-rail { align-items:center; display:flex; flex-direction:column; gap:15px; height:260px; justify-content:center; left:24px; position:fixed; top:50%; transform:translateY(-50%); z-index:12; }
-        .portfolio-rail:before { background:var(--line); content:''; height:196px; left:50%; position:absolute; top:32px; transform:translateX(-50%); width:1px; }
-        .portfolio-rail a { align-items:center; display:flex; height:10px; justify-content:center; position:relative; width:18px; }
-        .portfolio-rail-dot { background:var(--bg); border:1px solid var(--faint); border-radius:50%; display:block; height:6px; position:relative; transition:background .25s ease,border-color .25s ease,transform .25s ease; width:6px; }
-        .portfolio-rail a:hover .portfolio-rail-dot, .portfolio-rail a.active .portfolio-rail-dot { background:var(--blue); border-color:var(--blue); transform:scale(1.5); }
-        .portfolio-rail a:after { background:var(--bg); color:var(--muted); content:attr(aria-label); font-family:'DM Mono',monospace; font-size:9px; left:20px; opacity:0; padding:3px 5px; pointer-events:none; position:absolute; white-space:nowrap; transform:translateX(-4px); transition:opacity .2s ease,transform .2s ease; }
-        .portfolio-rail a:hover:after { opacity:1; transform:translateX(0); }
         .portfolio-hero { margin:auto; max-width:1240px; min-height:720px; padding:138px 32px 110px; position:relative; }
-        .portfolio-hero:before { background:radial-gradient(circle at 72% 35%, rgba(113,183,255,.14), transparent 27%); content:''; inset:0; pointer-events:none; position:absolute; }
-        .portfolio-kicker { align-items:center; color:var(--blue); display:flex; font-family:'DM Mono',monospace; font-size:11px; gap:10px; letter-spacing:.08em; margin-bottom:30px; text-transform:uppercase; }
-        .portfolio-kicker span { background:var(--blue); height:1px; width:38px; }
-        .portfolio-hero h1 { font-size:clamp(56px,9.2vw,132px); font-weight:500; letter-spacing:-.09em; line-height:.91; margin:0; max-width:980px; position:relative; }
+        .portfolio-hero:before { background:radial-gradient(circle at 73% 35%, rgba(113,183,255,.14), transparent 27%); content:''; inset:0; pointer-events:none; position:absolute; }
+        .portfolio-hero-context { color:var(--blue-soft); font-size:15px; line-height:1.5; margin:0 0 42px; max-width:360px; position:relative; }
+        .portfolio-hero-context:before { background:var(--blue); content:''; display:inline-block; height:1px; margin:0 12px 5px 0; width:24px; }
+        .portfolio-hero-layout { align-items:end; display:grid; gap:8%; grid-template-columns:1.35fr .65fr; position:relative; }
+        .portfolio-hero h1 { font-size:clamp(56px,8.6vw,124px); font-weight:500; letter-spacing:-.09em; line-height:.9; margin:0; max-width:850px; position:relative; }
         .portfolio-hero h1 em { color:var(--blue); font-style:normal; }
-        .portfolio-hero-bottom { align-items:flex-end; display:flex; justify-content:space-between; margin-top:68px; position:relative; }
+        .portfolio-hero-side { border-left:1px solid var(--line); padding:0 0 4px 28px; }
+        .portfolio-hero-side-label { color:var(--faint); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; margin:0 0 18px; text-transform:uppercase; }
+        .portfolio-hero-bottom { align-items:flex-start; display:flex; flex-direction:column; gap:28px; margin:0; position:relative; }
         .portfolio-intro { color:var(--muted); font-size:16px; line-height:1.65; max-width:455px; }
         .portfolio-intro strong { color:var(--ink); font-weight:600; }
         .portfolio-hero-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:flex-end; }
@@ -153,8 +120,8 @@ function Portfolio() {
         .portfolio-button.primary:hover { background:#a0d0ff; color:#071018; }
         .portfolio-grid { border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(12,1fr); margin:auto; max-width:1240px; }
         .portfolio-grid > section { grid-column:1/-1; padding:104px 32px; }
-        .portfolio-section-label { align-items:center; color:var(--muted); display:flex; font-family:'DM Mono',monospace; font-size:10px; gap:12px; letter-spacing:.08em; text-transform:uppercase; }
-        .portfolio-label-line { background:var(--blue); height:1px; width:40px; }
+        .portfolio-section-label { align-items:center; border-top:1px solid var(--line); color:var(--muted); display:flex; font-size:12px; justify-content:space-between; letter-spacing:.015em; padding-top:14px; }
+        .portfolio-label-context { color:var(--faint); font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; }
         .portfolio-section-head { align-items:flex-end; display:flex; justify-content:space-between; margin:44px 0 58px; }
         .portfolio-section-head h2 { font-size:clamp(34px,5vw,70px); font-weight:500; letter-spacing:-.065em; line-height:.98; margin:0; }
         .portfolio-section-head h2 em { color:var(--blue); font-style:normal; }
@@ -169,6 +136,10 @@ function Portfolio() {
         .portfolio-role p { color:var(--muted); font-size:13px; line-height:1.65; margin:17px 0 0; max-width:590px; }
         .portfolio-role-arrow { color:var(--faint); transition:color .25s ease,transform .25s ease; }
         .portfolio-role:hover .portfolio-role-arrow { color:var(--blue); transform:translateX(4px); }
+        .portfolio-stats { border-top:1px solid var(--line); display:grid; gap:24px; grid-template-columns:repeat(4,1fr); padding-top:28px; }
+        .portfolio-stat { display:flex; flex-direction:column; gap:9px; min-width:0; }
+        .portfolio-stat strong { color:var(--ink); font-size:clamp(28px,3.2vw,46px); font-weight:600; letter-spacing:-.065em; line-height:1; }
+        .portfolio-stat span { color:var(--muted); font-family:'DM Mono',monospace; font-size:10px; line-height:1.4; }
         .portfolio-projects-section { background:#0d1216; }
         .portfolio-projects { display:grid; gap:18px; grid-template-columns:1.1fr .9fr; margin-left:16.66%; max-width:940px; }
         .portfolio-project { border:1px solid var(--line); min-height:350px; overflow:hidden; padding:26px; position:relative; transition:border-color .3s ease,transform .3s ease; }
@@ -226,13 +197,15 @@ function Portfolio() {
           .portfolio-navlinks.open { display:flex; }
           .portfolio-navlinks a { padding:12px; }
           .portfolio-menu { display:block; }
-          .portfolio-progress-mobile { display:block; }
-          .portfolio-rail { display:none; }
           .portfolio-hero { min-height:700px; padding:92px 20px 82px; }
+          .portfolio-hero-context { font-size:13px; margin-bottom:34px; }
+          .portfolio-hero-layout { display:flex; flex-direction:column; gap:48px; }
           .portfolio-hero h1 { font-size:clamp(50px,15vw,80px); }
+          .portfolio-hero-side { border-left:0; border-top:1px solid var(--line); padding:24px 0 0; }
           .portfolio-hero-bottom, .portfolio-section-head, .portfolio-contact-layout { align-items:flex-start; flex-direction:column; gap:34px; }
           .portfolio-intro { font-size:14px; }
           .portfolio-hero-actions { justify-content:flex-start; }
+          .portfolio-stats { gap:28px 18px; grid-template-columns:repeat(2,1fr); }
           .portfolio-grid > section { padding:72px 20px; }
           .portfolio-section-head { margin:35px 0 40px; }
           .portfolio-experience, .portfolio-projects, .portfolio-skill-layout, .portfolio-education-list, .portfolio-volunteer-card { margin-left:0; }
@@ -257,39 +230,33 @@ function Portfolio() {
 
       <header className="portfolio-nav">
         <a className="portfolio-mark" href="#top" aria-label="Back to top">
-          <i /> SNP / 26
+          Shlok Navin Panjabi
         </a>
         <nav className={`portfolio-navlinks ${menuOpen ? "open" : ""}`} aria-label="Main navigation">
           {sections.map((section) => (
             <a href={`#${section.id}`} key={section.id} onClick={closeMenu}>{section.label}</a>
           ))}
+          <a href="https://github.com/shlokpanjabiwork" target="_blank" rel="noreferrer" onClick={closeMenu}>GitHub</a>
         </nav>
         <button className="portfolio-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close navigation" : "Open navigation"}>
           {menuOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
       </header>
 
-      <div className="portfolio-progress-mobile" aria-hidden="true">
-        <span style={{ transform: `scaleX(${progress})` }} />
-      </div>
-
-      <aside className="portfolio-rail" aria-label="Page progress">
-        {sections.map((section) => (
-          <a className={activeSection === section.id ? "active" : ""} href={`#${section.id}`} aria-label={section.label} key={section.id}>
-            <span className="portfolio-rail-dot" />
-          </a>
-        ))}
-      </aside>
-
       <div id="top" className="portfolio-hero">
-        <div className="portfolio-kicker"><span /> Available for thoughtful problems</div>
-        <h1>Building a way<br />to make sense of<br /><em>complex things.</em></h1>
-        <div className="portfolio-hero-bottom">
-          <p className="portfolio-intro">I’m <strong>Shlok Navin Panjabi</strong>, a first-year MEng Computer Science (Artificial Intelligence) student at the University of Southampton. I’m drawn to the space where careful engineering turns difficult ideas into useful software.</p>
-          <div className="portfolio-hero-actions">
-            <a className="portfolio-button primary" href="#projects">View selected work <ArrowUpRight size={14} /></a>
-            <a className="portfolio-button" href={cvPath} download="ShlokNavinPanjabi_CV.pdf">Download CV <Download size={14} /></a>
-            <a className="portfolio-button" href="#contact">Get in touch <Mail size={14} /></a>
+        <p className="portfolio-hero-context">A first-year computer science student exploring software engineering and AI.</p>
+        <div className="portfolio-hero-layout">
+          <h1>I build <em>software</em><br />to understand<br />what <em>matters.</em></h1>
+          <div className="portfolio-hero-side">
+            <p className="portfolio-hero-side-label">Southampton, UK / 2026</p>
+            <div className="portfolio-hero-bottom">
+              <p className="portfolio-intro">I’m <strong>Shlok Navin Panjabi</strong>, a first-year MEng Computer Science (Artificial Intelligence) student at the University of Southampton. I’m drawn to the space where careful engineering turns difficult ideas into useful software.</p>
+              <div className="portfolio-hero-actions">
+                <a className="portfolio-button primary" href="#projects">View selected work <ArrowUpRight size={14} /></a>
+                <a className="portfolio-button" href={cvPath} download="ShlokNavinPanjabi_CV.pdf">Download CV <Download size={14} /></a>
+                <a className="portfolio-button" href="#contact">Get in touch <Mail size={14} /></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -410,6 +377,7 @@ function Portfolio() {
           <div className="portfolio-contact-links">
             <a className="portfolio-contact-link" href="mailto:shlokpanjabi.work@gmail.com"><span>shlokpanjabi.work@gmail.com</span><Mail size={16} /></a>
             <a className="portfolio-contact-link" href="https://linkedin.com/in/shlok-panjabi" target="_blank" rel="noreferrer"><span>linkedin.com/in/shlok-panjabi</span><Linkedin size={16} /></a>
+            <a className="portfolio-contact-link" href="https://github.com/shlokpanjabiwork" target="_blank" rel="noreferrer"><span>github.com/shlokpanjabiwork</span><Github size={16} /></a>
             <a className="portfolio-contact-link" href={cvPath} download="ShlokNavinPanjabi_CV.pdf"><span>Download CV</span><ArrowDownToLine size={16} /></a>
           </div>
         </section>
@@ -420,8 +388,8 @@ function Portfolio() {
         <div className="portfolio-footer-links">
           <a href="mailto:shlokpanjabi.work@gmail.com">Email</a>
           <a href="https://linkedin.com/in/shlok-panjabi" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/shlokpanjabiwork" target="_blank" rel="noreferrer">GitHub</a>
           <a href={cvPath} download="ShlokNavinPanjabi_CV.pdf">CV</a>
-          <span>GitHub — soon</span>
         </div>
       </footer>
     </main>

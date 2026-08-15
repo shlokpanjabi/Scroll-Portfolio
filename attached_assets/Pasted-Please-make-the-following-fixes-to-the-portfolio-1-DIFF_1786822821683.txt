@@ -1,0 +1,14 @@
+Please make the following fixes to the portfolio:
+
+1. DIFFERENTIATE THE DESIGN — right now the layout, nav mark, eyebrow tag, and hero structure are too close to another site I've seen. I need real visual differences, not just reworded copy:
+   - Nav mark: drop the "INITIALS / YEAR" badge-with-dot format entirely. Instead just use my name in a clean wordmark style, no dot, no slash.
+   - Eyebrow/tag above the headline: remove the small-caps "label with a dash" treatment. Either drop the eyebrow line entirely, or replace it with something visually different — e.g. a short line of body-weight text, not an all-caps mono tag.
+   - Hero layout: instead of a big left-aligned stacked headline with the last line in the accent color, try the headline breaking across two unequal columns, OR keep it centered instead of left-aligned, OR make only certain key words (not the whole last line) pop in the accent color.
+   - Section headers: change from left-aligned "small line + big heading" to something else — e.g. large heading with the number worked in differently (superscript, or off to the side in a box), or drop numbering and use section names styled as running labels in the corner.
+   - Rewrite the actual headline, eyebrow, and hero copy too — new wording, not rearranged phrases.
+
+2. REMOVE THE LEFT-SIDE DOT PROGRESS RAIL entirely, on both desktop and mobile. Don't replace it with anything — just remove it and let sections sit with normal spacing.
+
+3. FIX THE STATS ROW — right now the numbers and labels are rendering squashed together on one line with no spacing (e.g. "2:1Year 1 result", "09 weeksAccelerComm internship"). Rebuild as a proper row of stat blocks: large bold value on one line, label clearly separated underneath in smaller, dimmer text, with real spacing between the four blocks. On mobile, collapse to a 2x2 grid instead of fitting 4 across.
+
+4. ADD GITHUB LINK — add https://github.com/shlokpanjabiwork as a working link wherever LinkedIn currently appears (nav, footer, contact section), same styling treatment as the LinkedIn link.
