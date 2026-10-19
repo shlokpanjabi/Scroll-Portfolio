@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Shlok Panjabi — Terminal Portfolio"
+description = "A responsive interactive portfolio for Shlok Navin Panjabi, presenting software engineering experience, projects, skills, education, volunteering, and contact links through a command-driven terminal interface."
+version = "1.0.0"
+id = "artifacts/shlok-terminal-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23716
+
+[services.development]
+run = "pnpm --filter @workspace/shlok-terminal-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/shlok-terminal-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/shlok-terminal-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23716"
+BASE_PATH = "/"
