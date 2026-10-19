@@ -26,7 +26,6 @@ import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 const queryClient = new QueryClient();
 const cvPath = '/ShlokNavinPanjabi_CV.pdf';
 const cvFileName = 'ShlokNavinPanjabi_CV.pdf';
-const headshotPath = '/shlok-headshot.jpg';
 const email = 'shlokpanjabi.work@gmail.com';
 const githubUrl = 'https://github.com/shlokpanjabi';
 const linkedinUrl = 'https://linkedin.com/in/shlok-panjabi';
@@ -158,12 +157,15 @@ const projects: Project[] = [
     context: 'IBM Z Datathon 2026 · Team Databaes (6 people)',
     body: 'Team-built real-time detection of authorised push payment (APP) scams, designed so that each flag can be explained.',
     points: [
-      'Gradient boosting model (scikit-learn) combined with explainable rules.',
-      'Team’s project evaluation: 97.0% recall and 92.4% precision, with sub-millisecond scoring per transaction. These are evaluation results, not real-world guarantees.',
-      'Served with FastAPI on IBM LinuxONE (s390x), with a SQLite audit log of every decision.',
+      'Team build: a gradient boosting model (scikit-learn) combined with explainable rules, served with FastAPI on IBM LinuxONE (s390x), with a SQLite audit log of every decision.',
+      'Team’s project evaluation on a 10,000-payment synthetic test split, not real banking data: 97.0% recall and 92.4% precision, with sub-millisecond scoring per transaction. These are evaluation results, not real-world guarantees.',
+      'My contribution (merged PR #2): polished the paused-payment screen UI and made the demo mobile-friendly.',
     ],
     stack: ['SCIKIT-LEARN', 'FASTAPI', 'IBM LINUXONE', 'SQLITE'],
-    links: [],
+    links: [
+      { label: 'Code', href: 'https://github.com/36taransingh5-dotcom/ibm-z-datathon-2026-databaes', text: 'github.com/36taransingh5-dotcom/ibm-z-datathon-2026-databaes' },
+      { label: 'My PR', href: 'https://github.com/36taransingh5-dotcom/ibm-z-datathon-2026-databaes/pull/2', text: 'PR #2 · paused-payment UI and mobile (merged)' },
+    ],
     accent: '#f3ad6d',
   },
   {
@@ -279,10 +281,7 @@ function TerminalPortfolio() {
 
         <section className="tp-hero" id="home" data-testid="section-home">
           <p className="tp-kicker">/usr/local/about <span>· interactive profile</span></p>
-          <div className="tp-hero-head">
-            <img className="tp-avatar" src={headshotPath} alt="Shlok Panjabi, smiling, wearing a light grey t-shirt" width={600} height={600} decoding="async" data-testid="img-headshot" />
-            <h1><span className="tp-hero-name">Shlok Navin Panjabi</span><span className="tp-hero-title">Engineer<br /><em>in progress.</em></span></h1>
-          </div>
+          <h1><span className="tp-hero-name">Shlok Navin Panjabi</span>Engineer<br /><em>in progress.</em></h1>
           <p className="tp-hero-copy">Second-year MEng Computer Science (AI) student at Southampton. I build AI-powered products and testable systems, with system test and hardware bring-up experience at AccelerComm.</p>
           <p className="tp-hero-target" data-testid="text-internship-target">Seeking summer 2027 software engineering and AI internships.</p>
           <div className="tp-hero-actions">
@@ -323,7 +322,7 @@ function TerminalPortfolio() {
                   {project.links.length > 0 && (
                     <div className="tp-project-links">
                       {project.links.map((link) => (
-                        <a key={link.href} href={link.href} target="_blank" rel="noreferrer" aria-label={`${project.title} ${link.label.toLowerCase()}: ${link.text} (opens in a new tab)`} data-testid={`link-${project.key}-${link.label.toLowerCase()}`}>
+                        <a key={link.href} href={link.href} target="_blank" rel="noreferrer" aria-label={`${project.title} ${link.label}: ${link.text} (opens in a new tab)`} data-testid={`link-${project.key}-${link.label.toLowerCase().replace(' ', '-')}`}>
                           <b>{link.label}</b><span>{link.text}</span><ArrowUpRight size={13} style={{ color: project.accent }} aria-hidden="true" />
                         </a>
                       ))}
