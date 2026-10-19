@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "Shlok Panjabi — Terminal Portfolio"
-description = "A responsive interactive portfolio for Shlok Navin Panjabi, presenting software engineering experience, projects, skills, education, volunteering, and contact links through a command-driven terminal interface."
+description = "A responsive interactive portfolio for Shlok Navin Panjabi, presenting selected projects, experience, technical skills, education, community and contact links through a command-driven terminal interface."
 version = "1.0.0"
 id = "artifacts/shlok-terminal-portfolio"
 router = "path"
